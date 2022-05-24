@@ -19,7 +19,14 @@
 
 //[Headers] You can add your own extra header files here...
 #include "../SIDProgram.h"
-#include "../../Requirements/resid-0.16/SID.h"
+#include "../../Requirements/resid-0.16/sid.h"
+
+#ifdef _WIN32
+//#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
 //[/Headers]
 
 #include "WaveformView.h"

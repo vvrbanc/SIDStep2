@@ -22,6 +22,10 @@
 #include "../Recorder.h"
 #include "FrameRow.h"
 
+#ifdef __linux__
+    #include <assert.h>
+    #define _ASSERT assert
+#endif
 //[/Headers]
 
 #include "CommandView.h"

@@ -391,7 +391,7 @@ void
             const unsigned release
             )
 {
-    releaseCounter = Wavetable::DECAY_RELEASE_FRAMES [ release ];
+    releaseCounter = DECAY_RELEASE_FRAMES [ release ];
     released       = true;
 }
 

@@ -2,7 +2,7 @@
 
 
 #include <array>
-
+#include <limits.h>
 
 #include "JuceHeader.h"
 
@@ -141,7 +141,7 @@ Wavetable::Wavetable (
               other . forVoice
              )
 {
-    for each ( unsigned int row in other . waveTable )
+    for ( unsigned int row : other . waveTable )
         waveTable . add (
                          row
                         );
@@ -169,7 +169,7 @@ Wavetable::Wavetable (
               other . forVoice
              )
 {
-    for each ( unsigned int row in other . waveTable )
+    for ( unsigned int row : other . waveTable )
         waveTable . add (
                          row
                         );
@@ -221,7 +221,7 @@ auto
     releaseCounter = other . releaseCounter;
     forVoice       = other . forVoice;
 
-    for each ( unsigned int row in other . waveTable )
+    for ( unsigned int row : other . waveTable )
         waveTable . add (
                          row
                         );
@@ -247,7 +247,7 @@ auto
     releaseCounter = other . releaseCounter;
     forVoice       = other . forVoice;
 
-    for each ( unsigned int row in other . waveTable )
+    for ( unsigned int row : other . waveTable )
         waveTable . add (
                          row
                         );
@@ -323,7 +323,7 @@ void
 
     wt -> deleteAllChildElements ();
 
-    for each ( unsigned int v in waveTable )
+    for ( unsigned int v : waveTable )
     {
         if ( v < 0x100 )
         {

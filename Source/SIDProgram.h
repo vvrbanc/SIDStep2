@@ -7,6 +7,8 @@
 #include "Programs/PulseTable.h"
 #include "Programs/Wavetable.h"
 
+static const int PATCH_VERSION = 1;
+
 class SidProgram final
         : public ReferenceCountedObject
         , public BankProgramChanged
@@ -143,5 +145,4 @@ private:
             false
     };
     int              forVoice {};
-    static const int PATCH_VERSION = 1;
 };

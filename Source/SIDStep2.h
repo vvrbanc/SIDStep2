@@ -5,6 +5,8 @@
 
 #include "SIDProgram.h"
 
+#include <limits.h>
+
 #include "Listeners/ListenerInitializer.h"
 
 class ExportManager;

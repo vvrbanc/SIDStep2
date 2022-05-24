@@ -176,9 +176,10 @@ void NoteTableCommandRow::comboBoxChanged (juce::ComboBox* comboBoxThatHasChange
                                                                                          &NoteTableSelectionChanged::onNoteTableSelectionChanged
                                                                                        , static_cast < unsigned int > ( row )
                                                                                         );
+        ArpRow newrow;                                                                                        
         SharedResourcePointer < ListenerList < NoteTableRowChanged > > () -> call (
                                                                                    &NoteTableRowChanged::onNoteTableRowChanged
-                                                                                 , Get ()
+                                                                                 , (newrow, newrow = Get())
                                                                                   );
         SharedResourcePointer < ListenerList < BankRepaintWaveform > > () -> call (
                                                                                    &BankRepaintWaveform::onBankRepaintWaveform
@@ -202,9 +203,10 @@ void NoteTableCommandRow::labelTextChanged (juce::Label* labelThatHasChanged)
                                                                                          &NoteTableSelectionChanged::onNoteTableSelectionChanged
                                                                                        , static_cast < unsigned int > ( row )
                                                                                         );
+        ArpRow newrow;
         SharedResourcePointer < ListenerList < NoteTableRowChanged > > () -> call (
                                                                                    &NoteTableRowChanged::onNoteTableRowChanged
-                                                                                 , Get ()
+                                                                                 , (newrow, newrow = Get())
                                                                                   );
         argumentLabel -> setText (
                                   argumentLabel -> getText () . paddedLeft (

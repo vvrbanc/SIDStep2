@@ -162,8 +162,8 @@ public:
 private:
     static const int register_array_size       = 0x19;
     static const int last_register             = 0x18;
-    static const int low_nybble_max            = 0x0f;
-    static const int _8_bits_max               = 0xff;
+    const int low_nybble_max                   = 0x0f;
+    const int _8_bits_max                      = 0xff;
     static const int _7_bits_max               = 0x7f;
     static const int delay_bit                 = 0x80;
     static const int data_row_length           = 0x10;

@@ -1,6 +1,7 @@
 #include "NoteTable.h"
 
 #include <array>
+#include <limits.h>
 
 #include "ArpRow.h"
 #include "Wavetable.h"
@@ -353,20 +354,18 @@ auto
 auto
     NoteTable::GetNoteTableEntryAt (
             const unsigned index
-            ) const -> ArpRow& { return *notes [ static_cast < int > ( index ) ]; }
+            ) const -> ArpRow& { printf("c %i\n", index); return *notes [ static_cast < int > ( index ) ]; }
 
 auto
-    NoteTable::GetCurrentNoteTableEntry () const -> ArpRow&
+    NoteTable::
+    GetCurrentNoteTableEntry () const -> ArpRow&
 {
-    if ( noteTableIndex == -1 )
-    {
-        // ReSharper disable once CppLocalVariableMayBeConst
-        auto ret = ArpRow {
-                ABSOLUTE
-              , 0
-        };
-        return ret;
-    }
+    static ArpRow ret = ArpRow {
+            ABSOLUTE
+            , 0
+    };
+    printf("gcne1 %i\n", noteTableIndex);
+    if ( noteTableIndex == -1 ) return ret;
     return GetNoteTableEntryAt (
                                 noteTableIndex );
 }
@@ -456,7 +455,7 @@ void
             const unsigned release
             )
 {
-    releaseCounter = Wavetable::DECAY_RELEASE_FRAMES [ release ];
+    releaseCounter = DECAY_RELEASE_FRAMES [ release ];
     released       = true;
 }
 

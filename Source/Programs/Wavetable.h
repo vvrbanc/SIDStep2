@@ -7,6 +7,24 @@
 
 #include "../Listeners/ListenerInitializer.h"
 
+static constexpr std::array < int , 16 > DECAY_RELEASE_FRAMES {
+            1
+          , 2
+          , 3
+          , 4
+          , 6
+          , 9
+          , 11
+          , 13
+          , 16
+          , 39
+          , 77
+          , 122
+          , 153
+          , 457
+          , 762
+          , 1218
+    };
 
 // ReSharper disable once CppInconsistentNaming
 class SidProgram;
@@ -205,24 +223,6 @@ public:
           , 153
           , 254
           , 406
-    };
-    static constexpr std::array < int , 16 > DECAY_RELEASE_FRAMES {
-            1
-          , 2
-          , 3
-          , 4
-          , 6
-          , 9
-          , 11
-          , 13
-          , 16
-          , 39
-          , 77
-          , 122
-          , 153
-          , 457
-          , 762
-          , 1218
     };
 private:
     static const int DEFAULT_WAVEFORM   = 0x41;

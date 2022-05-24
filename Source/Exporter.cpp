@@ -3,6 +3,10 @@
 #include "Recorder.h"
 #include "SIDProgram.h"
 
+#ifndef _ASSERT
+    #include <assert.h>
+    #define _ASSERT assert
+#endif
 Exporter::Exporter (
         std::shared_ptr < Recorder >& record
         )
@@ -145,8 +149,8 @@ void
                                                                                    frame_index ) );
                 frame_index++;
             }
-            str += String::toHexString (
-                                        c -> GetTime () - bar_start ) . paddedLeft (
+            str += String::toHexString (static_cast < int >
+                                        (c -> GetTime () - bar_start )) . paddedLeft (
                                                                                     '0'
                                                                                   , 4 ) + ",";
             switch ( c -> GetType () )
@@ -252,8 +256,8 @@ void
                                                                                        frame_index ) );
                     frame_index++;
                 }
-                str += String::toHexString (
-                                            c -> GetTime () - bar_start ) . paddedLeft (
+                str += String::toHexString (static_cast < int >
+                                            (c -> GetTime () - bar_start) ) . paddedLeft (
                                                                                         '0'
                                                                                       , 4 ) + ",";
                 switch ( c -> GetType () )
@@ -356,8 +360,8 @@ void
                                     , recording -> loopStart );
             if ( f != recording -> patternFrame . end () )
             {
-                str = "LOOP_TO " + String::toHexString (
-                                                        f - recording -> patternFrame . begin () ) . paddedLeft (
+                str = "LOOP_TO " + String::toHexString (static_cast < int >(
+                                                        f - recording -> patternFrame . begin ()) ) . paddedLeft (
                                                                                                                  '0'
                                                                                                                , 2 ) + "\n";
             }
